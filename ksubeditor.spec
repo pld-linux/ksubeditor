@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_desktopdir} 
 
 mv -f $RPM_BUILD_ROOT%{_iconsdir}/{lo,hi}color
-mv -f $RPM_BUILD_ROOT%{_applnkdir}/Applications/ksubeditor.desktop \
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Applications/ksubeditor.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
 #%find_lang %{name} --with-kde
