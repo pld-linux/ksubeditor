@@ -3,11 +3,12 @@ Summary(pl):	Ksubeditor - edytor napisów dla KDE 3.x
 Name:		ksubeditor
 Version:	0.2
 Epoch:		1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/ksubeditor/%{name}-%{version}.tar.gz
 # Source0-md5:	ddfb1c2ad888127835df09e5479b438d
+Patch0:		%{name}-desktop.patch
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
@@ -26,6 +27,7 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
@@ -45,7 +47,6 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/{lo,hi}color
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/Applications/ksubeditor.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
-echo "Categories=Qt;KDE;Utility;X-KDE-More;" >> $RPM_BUILD_ROOT%{_desktopdir}/ksubeditor.desktop
 
 #%find_lang %{name} --with-kde
 
