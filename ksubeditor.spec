@@ -1,15 +1,13 @@
 Summary:	Ksubeditor - a DivX subtitle editor for KDE 3.x
 Summary(pl):	Ksubeditor - edytor napisów dla KDE 3.x
 Name:		ksubeditor
-Version:	0.13
+Version:	0.2
 Epoch:		1
-Release:	2
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
-Patch0:		%{name}-c++.patch
-Patch1:		%{name}-docs.patch	
-# Source0-md5:	0849556d80e19ad3ce72909333aa584a
+Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	ddfb1c2ad888127835df09e5479b438d
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
@@ -28,10 +26,12 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
+kde_appsdir="%{_applnkdir}"; export kde_appsdir
+kde_htmldir="%{_htmldir}"; export kde_htmldir
+kde_icondir="%{_pixmapsdir}"; export kde_icondir
+
 %configure
 %{__make}
 
@@ -39,25 +39,25 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT \
-	kde_htmldir=%{_kdedocdir}
+	DESTDIR=$RPM_BUILD_ROOT 
 
 install -d $RPM_BUILD_ROOT%{_desktopdir} 
 
-mv -f $RPM_BUILD_ROOT%{_iconsdir}/{lo,hi}color
-mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Applications/ksubeditor.desktop \
+mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/{lo,hi}color
+mv -f $RPM_BUILD_ROOT%{_applnkdir}/Applications/ksubeditor.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
 echo "Categories=Qt;KDE;Utility;X-KDE-More;" >> $RPM_BUILD_ROOT%{_desktopdir}/ksubeditor.desktop
 
-%find_lang %{name} --with-kde
+#%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+#%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/ksubeditor
-%{_iconsdir}/hicolor/*/apps/*.png
+%{_pixmapsdir}/hicolor/*/apps/*.png
 %{_desktopdir}/ksubeditor.desktop
