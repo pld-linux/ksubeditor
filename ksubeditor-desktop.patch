@@ -1,0 +1,16 @@
+--- ksubeditor-0.2/ksubeditor/ksubeditor.desktop~	Wed Jul 28 00:41:59 2004
++++ ksubeditor-0.2/ksubeditor/ksubeditor.desktop	Wed Jul 28 00:43:15 2004
+@@ -5,8 +5,10 @@
+ Exec=ksubeditor -caption "%c" %i %m  
+ Icon=ksubeditor.png
+ DocPath=ksubeditor/index.html
+-Comment=
+-Comment[de]=
+-Terminal=0
++Comment=DivX subtitle editor for KDE
++Comment[pl]=Edytor napisów w DivX dla KDE
++Terminal=false
+ Name=Ksubeditor
+ Name[de]=Ksubeditor
++Categories=Qt;KDE;Utility;X-KDE-More
++# vi: encoding=utf-8
