@@ -6,7 +6,7 @@ Epoch:		1
 Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/sourceforge/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/ksubeditor/%{name}-%{version}.tar.gz
 # Source0-md5:	ddfb1c2ad888127835df09e5479b438d
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	fam-devel
@@ -30,7 +30,6 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
 kde_htmldir="%{_htmldir}"; export kde_htmldir
-kde_icondir="%{_pixmapsdir}"; export kde_icondir
 
 %configure
 %{__make}
@@ -59,5 +58,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc README
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/apps/ksubeditor
-%{_pixmapsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/hicolor/*/apps/*.png
 %{_desktopdir}/ksubeditor.desktop
