@@ -8,7 +8,7 @@ License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
 Patch0:		%{name}-c++.patch
-Patch1:		%{name}-doc.patch	
+Patch1:		%{name}-docs.patch	
 # Source0-md5:	0849556d80e19ad3ce72909333aa584a
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	fam-devel
@@ -27,7 +27,8 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %prep
 %setup -q -n %{name}-%{version}
-
+%patch0 -p1
+%patch1 -p1
 %build
 %configure
 %{__make}
