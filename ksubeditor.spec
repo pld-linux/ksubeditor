@@ -47,7 +47,7 @@ install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv -f $RPM_BUILD_ROOT%{_iconsdir}/{lo,hi}color
 mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Applications/ksubeditor.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
-echo "Categories=Qt;KDE;Utility;X-KDE-More" >> $RPM_BUILD_ROOT%{_desktopdir}/ksubeditor.desktop
+echo "Categories=Qt;KDE;Utility;X-KDE-More;" >> $RPM_BUILD_ROOT%{_desktopdir}/ksubeditor.desktop
 
 %find_lang %{name} --with-kde
 
