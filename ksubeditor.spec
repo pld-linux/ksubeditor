@@ -1,15 +1,15 @@
-#TODO - polish translation
-%define rcver	rc1
-
 Summary:	Ksubeditor is a DivX subtitle editor for KDE 3.x
 Summary(pl):	Ksubeditor jest edytorem napisów dla KDE 3.x
 Name:		ksubeditor
-Version:	0.2
-Release:	0.%{rcver}.1
+Version:	0.13
+Epoch:		1
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}%{rcver}.tar.gz
-# Source0-md5:	dfcfa14178f12540f53836036fa97980
+Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Patch0:		%{name}-c++.patch
+Patch1:		%{name}-doc.patch	
+# Source0-md5:	0849556d80e19ad3ce72909333aa584a
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
@@ -26,7 +26,7 @@ modyfikowaæ oraz konwertowaæ napisy pomiêdzy ró¿nymi formatami. Mo¿e w
 prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %prep
-%setup -q -n %{name}-%{version}%{rcver}
+%setup -q -n %{name}-%{version}
 
 %build
 %configure
@@ -34,20 +34,23 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_applnkdir}/Utilities,%{_pixmapsdir}/locolor/{16x16,32x32},%{_bindir}}
-
-install ksubeditor/lo16-app-ksubeditor.png $RPM_BUILD_ROOT%{_pixmapsdir}/locolor/16x16
-install ksubeditor/lo32-app-ksubeditor.png $RPM_BUILD_ROOT%{_pixmapsdir}/locolor/32x32
-install ksubeditor/ksubeditor $RPM_BUILD_ROOT%{_bindir}
-install ksubeditor/ksubeditor.desktop $RPM_BUILD_ROOT%{_applnkdir}/Utilities
+%{__make} DESTDIR=$RPM_BUILD_ROOT install
+install -d $RPM_BUILD_ROOT%{_desktopdir} 
+# ,%{_pixmapsdir}/locolor/{16x16,32x32},%{_bindir}}
+#install ksubeditor/lo16-app-ksubeditor.png $RPM_BUILD_ROOT%{_pixmapsdir}/locolor/16x16
+#install ksubeditor/lo32-app-ksubeditor.png $RPM_BUILD_ROOT%{_pixmapsdir}/locolor/32x32
+#install ksubeditor/ksubeditor $RPM_BUILD_ROOT%{_bindir}
+mv -f $RPM_BUILD_ROOT%{_iconsdir}/{lo,hi}color
+mv -f $RPM_BUILD_ROOT%{_datadir}/applnk/Applications/ksubeditor.desktop $RPM_BUILD_ROOT%{_desktopdir}/
+echo "Categories=Qt;KDE;Utility;X-KDE-More" >> $RPM_BUILD_ROOT%{_desktopdir}/ksubeditor.desktop
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files 
 %defattr(644,root,root,755)
-%doc AUTHORS README TODO
+%doc README
 %attr(755,root,root) %{_bindir}/*
-%{_pixmapsdir}/locolor/16x16/*
-%{_pixmapsdir}/locolor/32x32/*
-%{_applnkdir}/Utilities/ksubeditor.desktop
+%{_defaultdocdir}/HTML/en/ksubeditor/*
+%{_iconsdir}/hicolor/*/*
+%{_desktopdir}/ksubeditor.desktop
