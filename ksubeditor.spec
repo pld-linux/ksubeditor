@@ -4,11 +4,11 @@
 Summary:	Ksubeditor is a DivX subtitle editor for KDE 3.x.
 Summary(pl):	Ksubeditor jest edytorem napisów dla KDE 3.x.
 Name:		ksubeditor
-Version:	0.2%{rcver}
-Release:	1
+Version:	0.2
+Release:	0.%{rcver}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://umn.dl.sourceforge.net/sourceforge/sourceforge/ksubeditor/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sourceforge/sourceforge/%{name}/%{name}-%{version}%{rcver}.tar.gz
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -24,7 +24,7 @@ oraz konwertowaæ napisy pomiêdzy ró¿nymi formatami. Mo¿e w prosty
 sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{rcver}
 
 %build
 
