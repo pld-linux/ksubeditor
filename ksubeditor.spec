@@ -9,6 +9,7 @@ Release:	0.%{rcver}.1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}%{rcver}.tar.gz
+# Source0-md5:	dfcfa14178f12540f53836036fa97980
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	fam-devel
 BuildRequires:	kdelibs-devel
