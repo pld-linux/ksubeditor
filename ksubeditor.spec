@@ -11,6 +11,7 @@ Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/sourceforge/sourceforge/%{name}/%{name}-%{version}%{rcver}.tar.gz
 URL:		http://www.sourceforge.net/projects/ksubeditor/
 BuildRequires:	kdelibs-devel
+BuildRequires:	fam-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
