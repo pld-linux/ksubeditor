@@ -3,7 +3,7 @@ Summary(pl):	Ksubeditor - edytor napisów dla KDE 3.x
 Name:		ksubeditor
 Version:	0.13
 Epoch:		1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
