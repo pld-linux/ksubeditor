@@ -44,7 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir} 
 
-mv -f $RPM_BUILD_ROOT%{_pixmapsdir}/{lo,hi}color
+mv -f $RPM_BUILD_ROOT%{_iconsdir}/{lo,hi}color
 mv -f $RPM_BUILD_ROOT%{_applnkdir}/Applications/ksubeditor.desktop \
 	$RPM_BUILD_ROOT%{_desktopdir}
 
