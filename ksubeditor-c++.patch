@@ -1,0 +1,124 @@
+--- ksubeditor-0.13/ksubeditor/microdvd.cpp.orig	2002-12-14 21:19:57.000000000 +0100
++++ ksubeditor-0.13/ksubeditor/microdvd.cpp	2003-12-22 18:23:12.029455192 +0100
+@@ -147,7 +147,7 @@
+     return true;
+ }
+ /** No descriptions */
+-bool microDVD::move_time(int secs = 0, bool one){
++bool microDVD::move_time(int secs, bool one){
+ 
+   long start,end;
+   int  difference;
+@@ -406,7 +406,7 @@
+ }
+ 
+ 
+-bool microDVD::move_ms(int frames = 0, bool one){
++bool microDVD::move_ms(int frames, bool one){
+ 
+   long start,end;
+ 
+--- ksubeditor-0.13/ksubeditor/ksubeditordoc.h.orig	2003-12-22 18:24:21.923829632 +0100
++++ ksubeditor-0.13/ksubeditor/ksubeditordoc.h	2003-12-22 18:24:32.108281360 +0100
+@@ -68,7 +68,7 @@
+ {
+   Q_OBJECT
+ 
+-  friend KsubeditorView;
++  friend class KsubeditorView;
+ 
+   public:
+     /** Constructor for the fileclass of the application */
+--- ksubeditor-0.13/ksubeditor/ksubeditorview.h.orig	2003-12-22 18:16:15.933711360 +0100
++++ ksubeditor-0.13/ksubeditor/ksubeditorview.h	2003-12-22 18:16:35.358758304 +0100
+@@ -48,7 +48,7 @@
+ {
+   Q_OBJECT
+ 
+-  friend KsubeditorDoc;
++  friend class KsubeditorDoc;
+ 
+   public:
+ 
+--- ksubeditor-0.13/ksubeditor/change_fps.h.orig	2003-12-22 19:17:59.466688768 +0100
++++ ksubeditor-0.13/ksubeditor/change_fps.h	2003-12-22 19:18:13.425566696 +0100
+@@ -25,6 +25,7 @@
+ public:
+     change_fps( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
+     ~change_fps();
++    void languageChange();
+ 
+     QLabel* TextLabel1;
+     QComboBox* CurrentCombo;
+--- ksubeditor-0.13/ksubeditor/configure.h.orig	2003-12-22 18:38:56.457880248 +0100
++++ ksubeditor-0.13/ksubeditor/configure.h	2003-12-22 18:40:28.921823592 +0100
+@@ -31,6 +31,7 @@
+ public:
+     configure( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
+     ~configure();
++    void languageChange();
+ 
+     QTabWidget* TabWidget3;
+     QWidget* tab;
+--- ksubeditor-0.13/ksubeditor/convert.h.orig	2003-12-22 18:46:01.084327216 +0100
++++ ksubeditor-0.13/ksubeditor/convert.h	2003-12-22 18:46:45.308604104 +0100
+@@ -26,6 +26,7 @@
+ public:
+     convert( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
+     ~convert();
++    void languageChange();
+ 
+     QPushButton* PushButton2;
+     QPushButton* PushButton1;
+--- ksubeditor-0.13/ksubeditor/edit.h.orig	2003-12-22 18:31:33.912157424 +0100
++++ ksubeditor-0.13/ksubeditor/edit.h	2003-12-22 18:32:54.377924768 +0100
+@@ -26,6 +26,7 @@
+ public:
+     edit( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
+     ~edit();
++    void languageChange();
+ 
+     QMultiLineEdit* lineEdit;
+     QLabel* TextLabel1;
+--- ksubeditor-0.13/ksubeditor/insert_file.h.orig	2003-12-22 18:29:31.188814208 +0100
++++ ksubeditor-0.13/ksubeditor/insert_file.h	2003-12-22 18:29:50.340902648 +0100
+@@ -26,6 +26,7 @@
+ public:
+     insertFile( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
+     ~insertFile();
++    void languageChange();
+ 
+     QFrame* Frame3;
+     QLabel* TextLabel1;
+--- ksubeditor-0.13/ksubeditor/lista.h.orig	2003-12-22 19:11:23.072949776 +0100
++++ ksubeditor-0.13/ksubeditor/lista.h	2003-12-22 19:11:36.511906744 +0100
+@@ -25,6 +25,7 @@
+ public:
+     Lista( QWidget* parent = 0, const char* name = 0, WFlags fl = 0 );
+     ~Lista();
++    void languageChange();
+ 
+     KListView* ListView1;
+ 
+--- ksubeditor-0.13/ksubeditor/movetime.h.orig	2003-12-22 19:05:26.677130176 +0100
++++ ksubeditor-0.13/ksubeditor/movetime.h	2003-12-22 19:05:56.830546160 +0100
+@@ -28,7 +28,8 @@
+ public:
+     move_sub( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
+     ~move_sub();
+-
++    void languageChange();
++    
+     QComboBox* ComboBox1;
+     QSpinBox* minute;
+     QSpinBox* hour;
+--- ksubeditor-0.13/ksubeditor/new_fps.h.orig	2003-12-22 18:53:23.422081656 +0100
++++ ksubeditor-0.13/ksubeditor/new_fps.h	2003-12-22 18:53:38.345812904 +0100
+@@ -25,6 +25,7 @@
+ public:
+     new_fps( QWidget* parent = 0, const char* name = 0, bool modal = FALSE, WFlags fl = 0 );
+     ~new_fps();
++    void languageChange();	
+ 
+     QLabel* TextLabel1;
+     QComboBox* ComboBox1;
