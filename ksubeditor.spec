@@ -32,8 +32,7 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %build
 kde_appsdir="%{_applnkdir}"; export kde_appsdir
-kde_htmldir="%{_htmldir}"; export kde_htmldir
-
+kde_htmldir="%{_kdedocdir}"; export kde_htmldir
 cp -f /usr/share/automake/config.sub admin
 %configure
 %{__make}
