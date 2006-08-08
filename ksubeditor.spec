@@ -28,7 +28,7 @@ prosty sposób zmieniaæ czas napisów oraz dopasowaæ je do filmu.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 %build
 kde_htmldir="%{_kdedocdir}"; export kde_htmldir
