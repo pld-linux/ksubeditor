@@ -1,5 +1,5 @@
 Summary:	Ksubeditor - a DivX subtitle editor for KDE 3.x
-Summary(pl.UTF-8):   Ksubeditor - edytor napisów dla KDE 3.x
+Summary(pl.UTF-8):	Ksubeditor - edytor napisów dla KDE 3.x
 Name:		ksubeditor
 Version:	0.2
 Epoch:		2
