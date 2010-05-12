@@ -12,5 +12,5 @@
 +Terminal=false
  Name=Ksubeditor
  Name[de]=Ksubeditor
-+Categories=Qt;KDE;Utility;
++Categories=Qt;KDE;Video;AudioVideo;
 +# vi: encoding=utf-8
